@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>29 Ekim Cumhuriyet Bayramı</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="img/turkey.png" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="turkey-flag">
+        <div class="star"></div>
+      </div>
+
+      <main>
+        <h1>29 Ekim Cumhuriyet Bayramı<br />Kutlu Olsun</h1>
+      </main>
+    </div>
+
+    <img id="foreground" src="img/Atatürk.png" alt="Atatürk" />
+
+    <audio
+      src="audio/marş.mp3"
+      autoplay
+      loop
+      preload="auto"
+      style="display: none"
+    ></audio>
+
+    <script>
+      // Ses seviyesini %50 yap
+      document.addEventListener("DOMContentLoaded", () => {
+        const audio = document.querySelector("audio");
+        audio.volume = 0.5;
+      });
+    </script>
+  </body>
+</html>

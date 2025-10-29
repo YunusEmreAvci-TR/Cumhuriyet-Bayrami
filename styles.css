@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  border: 0;
+  outline: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Caveat", cursive;
+  background-color: #e30a17;
+}
+
+.container {
+  display: flex;
+}
+
+/* Bayrak Css Başlangıç */
+.turkey-flag {
+  --height: 80vh;
+  --width: calc(var(--height) * 1.5);
+  --color: #e30a17;
+  --moon-r: calc(var(--height) / 2);
+  --moon-inner-r: calc(var(--height) * 0.4);
+  --moon-inner-position: calc(var(--moon-r) + (var(--height) / 16));
+  --star-r: calc(var(--height) / 4);
+  --star-position: calc(
+    (var(--moon-inner-position) - (var(--moon-inner-r) / 2)) +
+      (var(--height) / 3)
+  );
+
+  width: var(--width);
+  height: var(--height);
+  background-color: var(--color);
+  position: relative;
+}
+.turkey-flag::before {
+  content: "";
+  width: var(--moon-r);
+  height: var(--moon-r);
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: var(--moon-r);
+  transform: translate(-50%, -50%);
+}
+
+.turkey-flag::after {
+  content: "";
+  width: var(--moon-inner-r);
+  height: var(--moon-inner-r);
+  background-color: var(--color);
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: var(--moon-inner-position);
+  transform: translate(-50%, -50%);
+}
+
+.turkey-flag .star {
+  width: var(--star-r);
+  height: var(--star-r);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  background: #fff;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: var(--star-position);
+  transform: translateY(-50%) rotate(-18deg);
+}
+
+/* Bayrak Css Bitiş */
+
+/* Yazı Css Başlangıç */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0px;
+  position: relative;
+  z-index: 30;
+}
+h1 {
+  font-size: clamp(28px, 6vw, 64px);
+  margin: 0 0 0.5rem 0;
+  color: #fff;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.03);
+  line-height: 1.05;
+}
+
+/* Yazı Css Bitiş */
+
+/* Resim Css Başlangıç */
+#foreground {
+  position: fixed;
+  left: 50%;
+  bottom: -100px;
+  transform: translateX(-50%) translateZ(40px);
+  height: 90vh;
+  display: block;
+  z-index: 200;
+  pointer-events: none;
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.7));
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  will-change: transform;
+}
+/* A subtle floating animation to emphasize depth */
+@keyframes float3d {
+  0% {
+    transform: translateX(-50%) translateY(0) translateZ(36px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-40px) translateZ(44px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) translateZ(36px);
+  }
+}
+
+#foreground {
+  animation: float3d 6s ease-in-out infinite;
+}
+/* Resim Css Bitiş */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .turkey-flag {
+    --height: 500px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    display: block;
+  }
+  .turkey-flag {
+    --height: 300px;
+  }
+}
