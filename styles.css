@@ -23,7 +23,7 @@ body {
 /* Bayrak Css Başlangıç */
 .turkey-flag {
   --height: 80vh;
-  --width: calc(var(--height) * 1.5);
+  --width: calc(var(--height) * 1.2);
   --color: #e30a17;
   --moon-r: calc(var(--height) / 2);
   --moon-inner-r: calc(var(--height) * 0.4);
@@ -115,7 +115,7 @@ h1 {
   left: 50%;
   bottom: -100px;
   transform: translateX(-50%) translateZ(40px);
-  height: 90vh;
+  height: 70vh;
   display: block;
   z-index: 200;
   pointer-events: none;
@@ -164,7 +164,7 @@ h1 {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .turkey-flag {
-    --height: 500px;
+    --height: 400px;
   }
 }
 
